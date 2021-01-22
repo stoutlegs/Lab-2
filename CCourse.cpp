@@ -1,9 +1,22 @@
+// Filename: CCourse.cpp
+// Description: Lab 2 - Grading CCourse C++ class
+// Author(s): Michael Andrews
+// Set: S
+// Date: Jan 20, 2021 (edited)
+
 #include "CCourse.h"
 #include "CStudent.h"
 #include <fstream>
 #include <iostream>
 #include <sstream>
 
+
+//////////////////////////////////////////////////////////////////////////
+// add_student - This function will create a new student in the vector
+//				students and then call the edit_student function.
+// Arguments: none
+// Note: none
+//////////////////////////////////////////////////////////////////////////
 void CCourse::add_student() {
     
     CStudent newStudent;
@@ -16,6 +29,13 @@ void CCourse::add_student() {
     edit_student(i);
 }
 
+//////////////////////////////////////////////////////////////////////////
+// edit_student - This function will prompt the user for student attributes
+//				such as student number. It will call functions for error
+//				checking.
+// Arguments: int i - this is the vector index of the student to edit.
+// Note: none
+//////////////////////////////////////////////////////////////////////////
 void CCourse::edit_student(int i) {
 
     bool flag = false;
@@ -116,6 +136,12 @@ void CCourse::edit_student(int i) {
         students[i].finalGrade = std::stof(strCheck);
 }
 
+//////////////////////////////////////////////////////////////////////////
+// print_grades - This function will print all the students and their 
+//				  attributes to be viewed by the operator.
+// Arguments: none
+// Note: none
+//////////////////////////////////////////////////////////////////////////
 void CCourse::print_grades() {
 
     std::cout << "#\t\t";
@@ -140,11 +166,23 @@ void CCourse::print_grades() {
     std::cout << "\n";
 }
 
+//////////////////////////////////////////////////////////////////////////
+// delete_student - This function will delete a student for the vector,
+//					subsequently shrinking the vector.
+// Arguments: int i - this is the vector index of the student to delete.
+// Note: none
+//////////////////////////////////////////////////////////////////////////
 void CCourse::delete_student(int i) {
 
     students.erase(students.begin() + i);
 }
 
+//////////////////////////////////////////////////////////////////////////
+// save - this function will save all the student info to a file called
+//		  "Students.txt". Th file is in the same folder as the .exe
+// Arguments: none
+// Note: none
+//////////////////////////////////////////////////////////////////////////
 void CCourse::save() {
     
     std::ofstream outfile;
@@ -162,6 +200,13 @@ void CCourse::save() {
     outfile.close();
 }
 
+//////////////////////////////////////////////////////////////////////////
+// load - This function will load all student info from the file called 
+//		  "Students.txt" and overwrite any existing students in the 
+//        vector.
+// Arguments: none
+// Note: none
+//////////////////////////////////////////////////////////////////////////
 void CCourse::load() {
 
     std::vector<std::string> all_data;
@@ -189,6 +234,13 @@ void CCourse::load() {
     }
 }
 
+//////////////////////////////////////////////////////////////////////////
+// find_student - This function will take a string input from the user
+//				  and check whether that student number exists in the
+//				  vector.
+// Arguments: std::string num - user input student number to find.
+// Note: none
+//////////////////////////////////////////////////////////////////////////
 int CCourse::find_student(std::string num) {
     for (int i = 0; i < students.size(); i++)
     {
@@ -201,6 +253,12 @@ int CCourse::find_student(std::string num) {
     return -1;
 }
 
+//////////////////////////////////////////////////////////////////////////
+// num_check - This function will take a user input string and check if
+//			   it can be converted to a float between 0.0-100.0
+// Arguments: std::string num - user input string to be checked.
+// Note: none
+//////////////////////////////////////////////////////////////////////////
 bool CCourse::num_check(std::string num) {
 
     int countDecimal = 0;

@@ -1,15 +1,22 @@
-// Lab 2.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// Filename: Lab 2.cpp
+// Description: Lab 2 - Grading
+// Author(s): Michael Andrews
+// Set: S
+// Date: Jan 20, 2021 (edited)
 
 #include <iostream>
 #include "CCourse.h"
 #include "CStudent.h"
 #include <fstream>
 
+//////////////////////////////////////////////////////////////////////////
+// print_menu - This function will print the main menu for the program
+// Arguments: none
+// Note: none
+//////////////////////////////////////////////////////////////////////////
 void print_menu();
 
-int main()
-{
+int main() {
 
 	char input = NULL;
 	int i = -1;
@@ -94,6 +101,11 @@ int main()
 	}
 }
 
+//////////////////////////////////////////////////////////////////////////
+// print_menu - This function will print the main menu for the program
+// Arguments: none
+// Note: none
+//////////////////////////////////////////////////////////////////////////
 void print_menu() {
 	std::cout << "****************************************\n";
 	std::cout << "ELEX 4618 Grade System, by MIKE ANDREWS\n";
