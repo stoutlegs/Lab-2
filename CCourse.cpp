@@ -281,8 +281,8 @@ bool CCourse::num_check(std::string num) {
 
     float numCheck = std::stof(num);
 
-    if (numCheck > 0) {
-        if (numCheck < 100) {
+    if (numCheck >= 0) {
+        if (numCheck <= 100) {
             return true;
         }
     }
